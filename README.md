@@ -35,6 +35,19 @@ Go версии 1.22.2 установлен на машину с Jenkins.
 ![Успешная сборка](img/Screenshot%20from%202025-11-20%2022-11-19.png)
 
 
----
+## Задание 2: Pipeline Project
 
-## Задание 2
+### Настройки Pipeline:
+![Настройки Pipeline](img/Screenshot%20from%202025-11-21%2019-58-05.png)
+
+### Stage View:
+![Stage View](img/Screenshot%20from%202025-11-21%2019-58-39.png)
+
+### Результаты выполнения:
+![Console Output](img/Screenshot%20from%202025-11-21%2019-59-44.png)
+
+### Вывод по заданию 2:
+- Успешно создан Pipeline проект
+- Сборка переписана на Declarative Pipeline
+- Все этапы (Git, Test, Build Docker) выполняются последовательно
+- Pipeline завершается со статусом SUCCESS
