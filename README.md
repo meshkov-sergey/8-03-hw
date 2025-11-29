@@ -3,51 +3,76 @@
 
 ## Задание 1
 
-Все этапы задания выполнены успешно:
-- Jenkins установлен и настроен
-- Go установлен и работает
-- Репозиторий подключен к Jenkins
-- Тесты Go выполняются успешно
-- Docker сборка работает корректно
-- Сборка завершается со статусом SUCCESS
+### Выполненные этапы:
 
-### Домашнее задание по Jenkins
+#### Шаг 1: Установка GitLab
+- GitLab Community Edition успешно установлен на Ubuntu 24.04 LTS
+- Доступен по адресу: http://10.0.2.15
+- Все сервисы GitLab работают корректно
 
-### Выполнение задания
+#### Шаг 2: Создание проекта
+- Создан новый проект "my_project" в GitLab
+- Проект настроен с публичным доступом
 
-### Шаг 1: Установка Jenkins
-Jenkins успешно установлен на Ubuntu VM и настроен.
+#### Шаг 3: Настройка GitLab Runner
+- GitLab Runner зарегистрирован и запущен в Docker-контейнере
+- Runner настроен для работы с Docker-in-Docker
+- Использует образ golang:1.17 по умолчанию
+- Назначен тег: netology
 
-### Шаг 2: Установка Go
-Go версии 1.22.2 установлен на машину с Jenkins.
+#### Настройки и статус Runner:
+![Настройки Runner в проекте GitLab](img/Screenshot%from%2025-11-29%22-59-13.png)
+![Детальная конфигурация Runner](img/Screenshot%from%2025-11-29%23-00-19.png)
 
-### Шаг 3: Создание форка репозитория
-Создан форк репозитория: https://github.com/meshkov-sergey/sdvps-materials-cicd
+#### Шаг 4: Связывание с локальным репозиторием
+- Локальная директория связана с GitLab репозиторием
+- Настроен remote: gitlab
+- Код успешно пушится в репозиторий
 
-### Шаг 4: Настройка Freestyle Project в Jenkins
+## Задание 2
 
-#### Настройки проекта:
-![Настройки Source Code Management](img/Screenshot%20from%202025-11-20%2022-09-35.png)
+### Выполненные этапы:
 
-![Настройки Build Steps](img/Screenshot%20from%202025-11-20%2022-09-52.png)
+#### Шаг 1: Перенос репозитория на GitLab
+- Репозиторий `https://github.com/netology-code/sdvps-materials` перенесен на GitLab
+- Создан проект `sdvps-materials`
+- Код успешно запушен в GitLab
+![Код успешно запушен в GitLab](Screenshot%from%2025-11-29%23-43-56.png)
 
-#### Результаты выполнения сборки:
-![Успешная сборка](img/Screenshot%20from%202025-11-20%2022-11-19.png)
+#### Шаг 2: Создание .gitlab-ci.yml
+Создан файл конфигурации CI/CD пайплайна:
 
+```yaml
+stages:
+  - test
+  - build
 
-## Задание 2: Pipeline Project
+test:
+  stage: test
+  image: golang:1.17
+  script:
+   - go test .
+  tags:
+    - netology
 
-### Настройки Pipeline:
-![Настройки Pipeline](img/Screenshot%20from%202025-11-21%2019-58-05.png)
+build:
+  stage: build
+  image: docker:latest
+  script:
+   - docker build .
+  tags:
+    - netology
+```
 
-### Stage View:
-![Stage View](img/Screenshot%20from%202025-11-21%2019-58-39.png)
+### Шаг 3: Результаты выполнения пайплайна
 
-### Результаты выполнения:
-![Console Output](img/Screenshot%20from%202025-11-21%2019-59-44.png)
+- Пайплайн успешно выполнен
+- Оба этапа (test и build) завершены без ошибок
+- Go тесты пройдены
+- Docker сборка выполнена
 
-### Вывод по заданию 2:
-- Успешно создан Pipeline проект
-- Сборка переписана на Declarative Pipeline
-- Все этапы (Git, Test, Build Docker) выполняются последовательно
-- Pipeline завершается со статусом SUCCESS
+### Скриншоты:
+
+![Успешно выполненный пайплайн в GitLab CI/CD](img/Screenshot%from%2025-11-29%23-31-05.png)
+
+![Детали выполнения этапа Jobe](img/Screenshot%from%2025-11-29%23-31-57.png)
