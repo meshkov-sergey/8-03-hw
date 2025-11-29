@@ -21,8 +21,8 @@
 - Назначен тег: netology
 
 #### Настройки и статус Runner:
-![Настройки Runner в проекте GitLab](img/Screenshot%from%2025-11-29%22-59-13.png)
-![Детальная конфигурация Runner](img/Screenshot%from%2025-11-29%23-00-19.png)
+![Настройки Runner в проекте GitLab](img/Screenshot%20from%202025-11-29%2022-59-13.png)
+![Детальная конфигурация Runner](img/Screenshot%20from%202025-11-29%2023-00-19.png)
 
 #### Шаг 4: Связывание с локальным репозиторием
 - Локальная директория связана с GitLab репозиторием
@@ -37,7 +37,7 @@
 - Репозиторий `https://github.com/netology-code/sdvps-materials` перенесен на GitLab
 - Создан проект `sdvps-materials`
 - Код успешно запушен в GitLab
-![Код успешно запушен в GitLab](Screenshot%from%2025-11-29%23-43-56.png)
+![Код успешно запушен в GitLab](img/Screenshot%20from%202025-11-29%2023-43-56.png)
 
 #### Шаг 2: Создание .gitlab-ci.yml
 Создан файл конфигурации CI/CD пайплайна:
@@ -73,6 +73,6 @@ build:
 
 ### Скриншоты:
 
-![Успешно выполненный пайплайн в GitLab CI/CD](img/Screenshot%from%2025-11-29%23-31-05.png)
+![Успешно выполненный пайплайн в GitLab CI/CD](img/Screenshot%20from%202025-11-29%2023-31-05.png)
 
-![Детали выполнения этапа Jobe](img/Screenshot%from%2025-11-29%23-31-57.png)
+![Детали выполнения этапа Jobe](img/Screenshot%20from%202025-11-29%2023-31-57.png)
